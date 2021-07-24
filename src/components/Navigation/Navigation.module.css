@@ -1,0 +1,32 @@
+@value light-text-color from '../../styles/variables.module.css';
+@value accent-color from '../../styles/variables.module.css';
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.navList {
+  display: flex;
+  margin-left: auto;
+}
+
+.navItem {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  text-transform: uppercase;
+  color: light-text-color;
+}
+
+.navItem:not(:last-child) {
+  margin-right: 40px;
+}
+
+.navItem:hover,
+.navItem:focus {
+  color: accent-color;
+  cursor: pointer;
+}

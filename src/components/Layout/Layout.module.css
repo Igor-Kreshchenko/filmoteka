@@ -1,0 +1,11 @@
+@value mobile-brp from '../../styles/variables.module.css';
+
+.bgWrapper {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-width: mobile-brp;
+  background-image: url("../../images/header/header-bg-mobile.jpg");
+  background-position: center;
+  background-size: cover;
+}

@@ -1,0 +1,9 @@
+.logo {
+  cursor: pointer;
+  transition: transform 500ms linear;
+}
+
+.logo:hover,
+.logo:focus {
+  transform: rotate(360deg);
+}
