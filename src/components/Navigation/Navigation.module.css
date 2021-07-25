@@ -4,7 +4,7 @@
 .navigation {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 40px;
 }
 
@@ -19,6 +19,7 @@
   line-height: 1.17;
   text-transform: uppercase;
   color: light-text-color;
+  transition: color 250ms linear;
 }
 
 .navItem:not(:last-child) {

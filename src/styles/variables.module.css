@@ -2,6 +2,8 @@
 @value tablet-brp: 768px;
 @value desktop-brp: 1024px;
 
+@value dark-text-color: #000000;
 @value light-text-color: #ffffff;
+@value gray-text-color: #545454;
 
 @value accent-color: #FF6B08;

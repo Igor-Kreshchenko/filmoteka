@@ -16,8 +16,10 @@ class SearchForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const { onChangeQuery } = this.props;
+    const { searchQuery } = this.state;
 
-    console.log(this.state.searchQuery);
+    onChangeQuery(searchQuery);
     this.reset();
   };
 

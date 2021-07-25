@@ -1,11 +1,30 @@
 @value mobile-brp from '../../styles/variables.module.css';
+@value tablet-brp from '../../styles/variables.module.css';
+@value desktop-brp from '../../styles/variables.module.css';
 
 .bgWrapper {
-  display: inline-block;
+  display: block;
   padding-left: 20px;
   padding-right: 20px;
-  min-width: mobile-brp;
+
   background-image: url("../../images/header/header-bg-mobile.jpg");
   background-position: center;
   background-size: cover;
+}
+
+@media screen and (min-width: tablet-brp) {
+  .bgWrapper {
+    padding-left: 75px;
+    padding-right: 75px;
+    min-width: tablet-brp;
+    background-image: url("../../images/header/header-bg-tablet.jpg");
+  }
+}
+
+@media screen and (min-width: desktop-brp) {
+  .bgWrapper {
+    padding-left: 70px;
+    padding-right: 70px;
+    background-image: url("../../images/header/header-bg-desktop.jpg");
+  }
 }

@@ -1,3 +1,6 @@
+@value light-text-color from '../../styles/variables.module.css';
+@value tablet-brp from '../../styles/variables.module.css';
+
 .logo {
   cursor: pointer;
   transition: transform 500ms linear;
@@ -6,4 +9,17 @@
 .logo:hover,
 .logo:focus {
   transform: rotate(360deg);
+}
+
+.logoText {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.17;
+  color: light-text-color;
+}
+
+@media screen and (min-width: tablet-brp) {
+  .logo {
+    margin-right: 10px;
+  }
 }

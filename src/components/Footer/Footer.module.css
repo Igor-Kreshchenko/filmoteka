@@ -1,0 +1,21 @@
+@value gray-text-color from '../../styles/variables.module.css';
+@value tablet-brp from '../../styles/variables.module.css';
+
+.footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #f7f7f7;
+}
+
+.footerText {
+  font-size: 14px;
+  line-height: 1.14;
+  color: gray-text-color;
+}
+
+@media screen and (min-width: tablet-brp) {
+  .footerText {
+    font-size: 16px;
+    line-height: 1.19;
+  }
+}

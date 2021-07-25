@@ -1,4 +1,13 @@
+@value tablet-brp from '../../styles/variables.module.css';
+
 .section {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+@media screen and (min-width: tablet-brp) {
+  .section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }

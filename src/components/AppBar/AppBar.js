@@ -3,11 +3,11 @@ import Navigation from "../Navigation";
 import SearchForm from "../SearchForm";
 import styles from "./AppBar.module.css";
 
-const AppBar = () => {
+const AppBar = ({ onChangeQuery }) => {
   return (
     <header className={styles.header}>
       <Navigation />
-      <SearchForm />
+      <SearchForm onChangeQuery={onChangeQuery} />
     </header>
   );
 };

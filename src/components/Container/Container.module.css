@@ -1,4 +1,6 @@
 @value mobile-brp from '../../styles/variables.module.css';
+@value tablet-brp from '../../styles/variables.module.css';
+@value desktop-brp from '../../styles/variables.module.css';
 
 .container {
   max-width: mobile-brp;
@@ -6,4 +8,20 @@
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+@media screen and (min-width: tablet-brp) {
+  .container {
+    max-width: tablet-brp;
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+}
+
+@media screen and (min-width: desktop-brp) {
+  .container {
+    max-width: desktop-brp;
+    padding-left: 70px;
+    padding-right: 70px;
+  }
 }
