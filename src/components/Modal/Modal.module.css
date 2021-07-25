@@ -1,0 +1,65 @@
+@value mobile-brp from '../../styles/variables.module.css';
+
+.overlay {
+  position: fixed;
+
+  inset: 0;
+  padding: 20px;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+}
+
+.modal {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: mobile-brp;
+  padding: 10px 20px 40px;
+  background-color: #ffffff;
+}
+
+.closeModal {
+  display: block;
+  margin-left: auto;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+}
+
+.closeIcon:hover,
+.closeIcon:focus {
+  transform: scale(1.03);
+}
+
+.imageBox {
+  margin-bottom: 30px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.featureName {
+  text-transform: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #8c8c8c;
+}
+
+.feature {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.feature:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.modalTitle {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}

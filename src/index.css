@@ -1,3 +1,5 @@
+@value dark-text-color from '../../styles/variables.module.css';
+
 *,
 *:before,
 *:after {
@@ -7,6 +9,7 @@
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
+  color: dark-text-color;
 }
 
 img {

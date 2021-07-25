@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "../MoviesList.module.css";
 
-const MoviesItem = ({ image, name, year }) => {
+const MoviesItem = ({ image, name, year, id, onClick }) => {
   return (
-    <li className={styles.listItem}>
+    <li className={styles.listItem} onClick={onClick} id={id}>
       <div className={styles.imageBox}>
         <img src={image} alt={name} />
       </div>

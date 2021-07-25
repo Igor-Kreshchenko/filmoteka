@@ -13,3 +13,9 @@ export const fetchSearchMovies = (query, currentPage = 1) => {
 
   return axios.get(url).then(({ data }) => data.results);
 };
+
+export const fetchMovieById = (id) => {
+  const url = `/movie/${id}?api_key=${API_KEY}`;
+
+  return axios.get(url).then(({ data }) => data);
+};
