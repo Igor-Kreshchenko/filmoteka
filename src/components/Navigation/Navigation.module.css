@@ -13,7 +13,11 @@
   margin-left: auto;
 }
 
-.navItem {
+.navItem:not(:last-child) {
+  margin-right: 30px;
+}
+
+.navLink {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
@@ -22,12 +26,8 @@
   transition: color 250ms linear;
 }
 
-.navItem:not(:last-child) {
-  margin-right: 40px;
-}
-
-.navItem:hover,
-.navItem:focus {
+.navLink:hover,
+.navLink:focus {
   color: accent-color;
   cursor: pointer;
 }

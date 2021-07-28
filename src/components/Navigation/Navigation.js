@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import routes from "../../routes";
 import Logo from "../Logo";
 import styles from "./Navigation.module.css";
 
@@ -7,8 +9,21 @@ const Navigation = () => {
     <nav className={styles.navigation}>
       <Logo />
       <ul className={styles.navList}>
-        <li className={styles.navItem}>Home</li>
-        <li className={styles.navItem}>My library</li>
+        <li className={styles.navItem}>
+          <Link className={styles.navLink} to={routes.home}>
+            Home
+          </Link>
+        </li>
+        <li className={styles.navItem}>
+          <Link className={styles.navLink} to={routes.library}>
+            My library
+          </Link>
+        </li>
+        <li className={styles.navItem}>
+          <Link className={styles.navLink} to={routes.logIn}>
+            Log In
+          </Link>
+        </li>
       </ul>
     </nav>
   );

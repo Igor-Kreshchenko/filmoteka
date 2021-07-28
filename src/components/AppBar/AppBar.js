@@ -5,10 +5,12 @@ import styles from "./AppBar.module.css";
 
 const AppBar = ({ onChangeQuery }) => {
   return (
-    <header className={styles.header}>
-      <Navigation />
-      <SearchForm onChangeQuery={onChangeQuery} />
-    </header>
+    <div className={styles.bgWrapper}>
+      <header className={styles.header}>
+        <Navigation />
+        <SearchForm onChangeQuery={onChangeQuery} />
+      </header>
+    </div>
   );
 };
 

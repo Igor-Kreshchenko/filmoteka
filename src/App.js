@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Layout from "./components/Layout";
-import Section from "./components/Section";
-import MoviesList from "./components/MoviesList";
-import Modal from "./components/Modal";
+import { Route, Switch, Redirect } from "react-router-dom";
+import Container from "./components/Container";
+import AppBar from "./components/AppBar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Library from "./pages/Library";
+import LogIn from "./pages/LogIn";
+import routes from "./routes";
+import "./App.css";
 import {
   fetchTrendingMovies,
   fetchSearchMovies,
   fetchMovieById,
 } from "./services/api-service";
-import "./App.css";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -17,23 +21,15 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showModal, setShowModal] = useState(false);
 
-  // componentDidUpdate(_, prevState) {
-  //   const { searchQuery } = this.state;
-
-  //   if (prevState.searchQuery !== searchQuery) {
-  //     fetchSearchMovies(searchQuery).then((movies) =>
-  //       this.setState({ movies: [...movies] })
-  //     );
-  //   }
-  // }
-
   useEffect(() => {
     fetchTrendingMovies().then((movies) => setMovies([...movies]));
   }, []);
 
-  // useEffect(() => {
-  //   fetchSearchMovies(searchQuery).then((movies) => setMovies([...movies]));
-  // }, [searchQuery]);
+  useEffect(() => {
+    if (searchQuery) {
+      fetchSearchMovies(searchQuery).then((movies) => setMovies([...movies]));
+    }
+  }, [searchQuery]);
 
   const onChangeQuery = (query) => {
     setMovies([]);
@@ -56,13 +52,25 @@ const App = () => {
 
   return (
     <div className="App">
-      <Layout onChangeQuery={onChangeQuery}>
-        <Section>
-          <MoviesList movies={movies} onClick={onOpenModal} />
-        </Section>
-      </Layout>
+      <AppBar onChangeQuery={onChangeQuery} />
+      <Container>
+        <Switch>
+          <Route exact path={routes.home}>
+            <Home
+              movies={movies}
+              movie={movie}
+              onOpenModal={onOpenModal}
+              showModal={showModal}
+              onCloseModal={onCloseModal}
+            />
+          </Route>
 
-      {showModal && <Modal onClose={onCloseModal} movie={movie} />}
+          <Route path={routes.library} component={Library} />
+          <Route path={routes.logIn} component={LogIn} />
+          <Redirect to={routes.home} />
+        </Switch>
+      </Container>
+      <Footer />
     </div>
   );
 };
