@@ -1,0 +1,20 @@
+@value accent-color from '../../styles/variables.module.css';
+
+.button {
+  padding: 12px 8px;
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  transition: background-color 250ms linear, color 250ms linear;
+}
+
+.button:hover,
+.button:focus {
+  background-color: accent-color;
+  color: #ffffff;
+  border-color: transparent;
+}

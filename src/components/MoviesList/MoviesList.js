@@ -9,7 +9,7 @@ const MoviesList = ({ movies, onClick }) => {
     <ul className={styles.moviesList}>
       {movies.map(({ poster_path, title, original_name, release_date, id }) => {
         const posterUrl = poster_path
-          ? `https://image.tmdb.org/t/p/w300${poster_path}`
+          ? `https://image.tmdb.org/t/p/w500${poster_path}`
           : defaultPoster;
         const name = title ? title : original_name;
         const release = release_date

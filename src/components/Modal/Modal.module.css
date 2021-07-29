@@ -1,8 +1,13 @@
 @value mobile-brp from '../../styles/variables.module.css';
+@value tablet-brp from '../../styles/variables.module.css';
+@value desktop-brp from '../../styles/variables.module.css';
+@value accent-color from '../../styles/variables.module.css';
 
 .overlay {
   position: fixed;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   inset: 0;
   padding: 20px;
   overflow-y: scroll;
@@ -13,12 +18,12 @@
 .modal {
   margin-left: auto;
   margin-right: auto;
-  max-width: mobile-brp;
+  max-width: 280px;
   padding: 10px 20px 40px;
   background-color: #ffffff;
 }
 
-.closeModal {
+.closeBtn {
   display: block;
   margin-left: auto;
   padding: 0;
@@ -37,6 +42,18 @@
   overflow: hidden;
 }
 
+.modalTitle {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.featureList {
+  margin-bottom: 20px;
+}
+
 .featureName {
   text-transform: none;
   font-weight: 500;
@@ -46,6 +63,8 @@
 }
 
 .feature {
+  display: flex;
+  justify-content: space-between;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 12px;
@@ -56,10 +75,94 @@
   margin-bottom: 10px;
 }
 
-.modalTitle {
+.aboutTitle {
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 1.15;
+  font-size: 12px;
+  line-height: 1.33;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
   margin-bottom: 20px;
+}
+
+.buttonsBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rate {
+  padding: 1px 10px;
+  background-color: accent-color;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: tablet-brp) {
+  .modal {
+    display: flex;
+    min-width: 618px;
+    position: relative;
+    padding: 40px 30px;
+    justify-content: space-between;
+  }
+
+  .closeBtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .imageBox {
+    margin-bottom: 0;
+  }
+
+  .modalContent {
+    max-width: 264px;
+  }
+
+  .imageBox {
+    max-width: 264px;
+  }
+}
+
+@media screen and (min-width: desktop-brp) {
+  .modal {
+    min-width: 882px;
+    padding-top: 50px;
+  }
+
+  .modalContent {
+    max-width: 396px;
+  }
+
+  .imageBox {
+    max-width: 396px;
+  }
+
+  .buttonsBox {
+    display: flex;
+    max-width: 250px;
+    justify-content: space-between;
+  }
+
+  .feature {
+    font-size: 14px;
+  }
+
+  .featureName {
+    font-size: 14px;
+  }
+
+  .aboutTitle {
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
 }
