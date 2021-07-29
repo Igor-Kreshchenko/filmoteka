@@ -31,7 +31,7 @@ const Modal = ({ onClose, movie }) => {
   };
 
   const handleAddBtnClick = (e) => {
-    const type = e.target.name;
+    const type = e.currentTarget.name;
 
     fetch(`https://filmoteka-43b8d-default-rtdb.firebaseio.com/${type}.json`, {
       method: "POST",
