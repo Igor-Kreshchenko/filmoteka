@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import Container from "./components/Container";
-import AppBar from "./components/AppBar";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import Library from "./pages/Library";
-import LogIn from "./pages/LogIn";
+import Layout from "./components/Layout";
+import HomePage from "./pages/HomePage";
+import LibraryPage from "./pages/LibraryPage";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
 import routes from "./routes";
 import "./App.css";
 import {
@@ -51,27 +50,23 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <AppBar onChangeQuery={onChangeQuery} />
-      <Container>
-        <Switch>
-          <Route exact path={routes.home}>
-            <Home
-              movies={movies}
-              movie={movie}
-              onOpenModal={onOpenModal}
-              showModal={showModal}
-              onCloseModal={onCloseModal}
-            />
-          </Route>
-
-          <Route path={routes.library} component={Library} />
-          <Route path={routes.logIn} component={LogIn} />
-          <Redirect to={routes.home} />
-        </Switch>
-      </Container>
-      <Footer />
-    </div>
+    <Layout onChangeQuery={onChangeQuery}>
+      <Switch>
+        <Route exact path={routes.home}>
+          <HomePage
+            movies={movies}
+            movie={movie}
+            onOpenModal={onOpenModal}
+            showModal={showModal}
+            onCloseModal={onCloseModal}
+          />
+        </Route>
+        <Route path={routes.library} component={LibraryPage} />
+        <Route path={routes.register} component={RegisterPage} />
+        <Route path={routes.logIn} component={LoginPage} />
+        <Redirect to={routes.home} />
+      </Switch>
+    </Layout>
   );
 };
 

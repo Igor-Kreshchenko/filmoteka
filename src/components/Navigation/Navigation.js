@@ -20,8 +20,13 @@ const Navigation = () => {
           </Link>
         </li>
         <li className={styles.navItem}>
+          <Link className={styles.navLink} to={routes.register}>
+            Sign Up
+          </Link>
+        </li>
+        <li className={styles.navItem}>
           <Link className={styles.navLink} to={routes.logIn}>
-            Log In
+            Sign In
           </Link>
         </li>
       </ul>

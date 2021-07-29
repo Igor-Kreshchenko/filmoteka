@@ -3,7 +3,7 @@ import Section from "../../components/Section";
 import MoviesList from "../../components/MoviesList";
 import Modal from "../../components/Modal";
 
-const Home = ({ movies, onOpenModal, showModal, onCloseModal, movie }) => {
+const HomePage = ({ movies, onOpenModal, showModal, onCloseModal, movie }) => {
   return (
     <>
       <Section>
@@ -15,4 +15,4 @@ const Home = ({ movies, onOpenModal, showModal, onCloseModal, movie }) => {
   );
 };
 
-export default Home;
+export default HomePage;

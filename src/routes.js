@@ -1,7 +1,8 @@
 const routes = {
   home: "/",
   library: "/library",
-  logIn: "/log-in",
+  register: "/sign-up",
+  logIn: "/sign-in",
 };
 
 export default routes;
