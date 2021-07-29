@@ -50,10 +50,11 @@ const App = () => {
   };
 
   return (
-    <Layout onChangeQuery={onChangeQuery}>
+    <Layout>
       <Switch>
         <Route exact path={routes.home}>
           <HomePage
+            onChangeQuery={onChangeQuery}
             movies={movies}
             movie={movie}
             onOpenModal={onOpenModal}

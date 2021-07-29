@@ -1,0 +1,7 @@
+.buttonsBox {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+  max-width: 200px;
+}

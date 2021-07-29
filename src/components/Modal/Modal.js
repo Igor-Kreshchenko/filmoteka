@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Button from "../Button";
 import styles from "./Modal.module.css";
@@ -6,6 +6,10 @@ import styles from "./Modal.module.css";
 const modalRoot = document.querySelector("#modal-root");
 
 const Modal = ({ onClose, movie }) => {
+  const [modalMovie, setModalMovie] = useState(null);
+
+  useEffect(() => setModalMovie(movie), [movie]);
+
   useEffect(() => {
     const handleKeydown = ({ code }) => {
       if (code === "Escape") {
@@ -26,7 +30,21 @@ const Modal = ({ onClose, movie }) => {
     }
   };
 
-  const handleButtonClick = () => {
+  const handleAddBtnClick = (e) => {
+    const type = e.target.name;
+
+    fetch(`https://filmoteka-43b8d-default-rtdb.firebaseio.com/${type}.json`, {
+      method: "POST",
+      body: JSON.stringify(modalMovie),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    onClose();
+  };
+
+  const handleCloseButtonClick = () => {
     onClose();
   };
 
@@ -48,7 +66,7 @@ const Modal = ({ onClose, movie }) => {
         <button
           type="button"
           className={styles.closeBtn}
-          onClick={handleButtonClick}
+          onClick={handleCloseButtonClick}
         >
           <svg
             className={styles.closeIcon}
@@ -92,8 +110,16 @@ const Modal = ({ onClose, movie }) => {
           <p className={styles.description}>{overview}</p>
 
           <div className={styles.buttonsBox}>
-            <Button text={"add to Watched"} />
-            <Button text={"add to queue"} />
+            <Button
+              onClick={handleAddBtnClick}
+              name={"watched"}
+              text={"add to Watched"}
+            />
+            <Button
+              onClick={handleAddBtnClick}
+              name={"queue"}
+              text={"add to queue"}
+            />
           </div>
         </div>
       </div>

@@ -4,13 +4,13 @@ import Footer from "../Footer";
 import AppBar from "../AppBar";
 import styles from "./Layout.module.css";
 
-const Layout = ({ onChangeQuery, children }) => {
+const Layout = ({ children }) => {
   return (
     <div className={styles.appWrapper}>
       <div className={styles.contentWrapper}>
-        <AppBar onChangeQuery={onChangeQuery} />
+        <AppBar />
         <Container>
-          <main>{children}</main>
+          <main className={styles.main}>{children}</main>
         </Container>
       </div>
       <Footer />

@@ -1,12 +1,18 @@
 import React from "react";
+import Button from "@material-ui/core/Button";
 import styles from "./Button.module.css";
 
-const Button = ({ text }) => {
+const MyButton = ({ onClick, name, text }) => {
   return (
-    <button className={styles.button} type="submit">
+    <Button
+      variant="outlined"
+      className={styles.button}
+      onClick={onClick}
+      name={name}
+    >
       {text}
-    </button>
+    </Button>
   );
 };
 
-export default Button;
+export default MyButton;

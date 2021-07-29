@@ -26,7 +26,7 @@ const SearchForm = ({ onChangeQuery }) => {
       <label className={styles.label}>
         <input
           className={styles.searchInput}
-          placeholder="Поиск фильмов"
+          placeholder="Search movies"
           type="text"
           onChange={handleChange}
           value={searchQuery}

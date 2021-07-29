@@ -2,10 +2,19 @@ import React from "react";
 import Section from "../../components/Section";
 import MoviesList from "../../components/MoviesList";
 import Modal from "../../components/Modal";
+import SearchForm from "../../components/SearchForm";
 
-const HomePage = ({ movies, onOpenModal, showModal, onCloseModal, movie }) => {
+const HomePage = ({
+  onChangeQuery,
+  movies,
+  onOpenModal,
+  showModal,
+  onCloseModal,
+  movie,
+}) => {
   return (
     <>
+      <SearchForm onChangeQuery={onChangeQuery} />
       <Section>
         <MoviesList movies={movies} onClick={onOpenModal} />
       </Section>
