@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import Section from "../../components/Section";
 import MoviesList from "../../components/MoviesList";
 import Modal from "../../components/Modal";
 import SearchForm from "../../components/SearchForm";
+import MoviesContext from "../../store/movies-context";
 
 const HomePage = ({
   onChangeQuery,
   movies,
   onOpenModal,
-  showModal,
   onCloseModal,
   movie,
 }) => {
+  const moviesContext = useContext(MoviesContext);
+  const showModal = moviesContext.showModal;
+
   return (
     <>
       <SearchForm onChangeQuery={onChangeQuery} />

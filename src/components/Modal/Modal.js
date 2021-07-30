@@ -1,14 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext, useCallback } from "react";
 import { createPortal } from "react-dom";
 import Button from "../Button";
+import MoviesContext from "../../store/movies-context";
 import styles from "./Modal.module.css";
 
 const modalRoot = document.querySelector("#modal-root");
 
-const Modal = ({ onClose, movie }) => {
-  const [modalMovie, setModalMovie] = useState(null);
+const Modal = () => {
+  const moviesContext = useContext(MoviesContext);
+  const movie = moviesContext.movie;
+  const {
+    poster_path,
+    title,
+    vote_average,
+    vote_count,
+    popularity,
+    original_title,
+    overview,
+  } = movie;
 
-  useEffect(() => setModalMovie(movie), [movie]);
+  const onClose = useCallback(
+    () => moviesContext.onCloseModal(),
+    [moviesContext]
+  );
 
   useEffect(() => {
     const handleKeydown = ({ code }) => {
@@ -35,7 +49,7 @@ const Modal = ({ onClose, movie }) => {
 
     fetch(`https://filmoteka-43b8d-default-rtdb.firebaseio.com/${type}.json`, {
       method: "POST",
-      body: JSON.stringify(modalMovie),
+      body: JSON.stringify(movie),
       headers: {
         "Content-Type": "application/json",
       },
@@ -47,16 +61,6 @@ const Modal = ({ onClose, movie }) => {
   const handleCloseButtonClick = () => {
     onClose();
   };
-
-  const {
-    poster_path,
-    title,
-    vote_average,
-    vote_count,
-    popularity,
-    original_title,
-    overview,
-  } = movie;
 
   const posterUrl = `https://image.tmdb.org/t/p/w500${poster_path}`;
 

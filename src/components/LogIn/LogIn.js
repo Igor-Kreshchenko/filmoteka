@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -8,6 +9,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import routes from "../../routes";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -33,6 +35,7 @@ export default function SignIn() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -56,10 +59,14 @@ export default function SignIn() {
     setPassword("");
   };
 
+  const handleGoBack = () => history.replace(routes.home);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     console.log({ email, password });
+    // fetch и после него handleGoBack в then
+    handleGoBack();
 
     resetForm();
   };

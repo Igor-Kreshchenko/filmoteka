@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import defaultPoster from "../../images/default-poster.png";
 import MoviesItem from "./MoviesItem";
-
+import MoviesContext from "../../store/movies-context";
 import styles from "./MoviesList.module.css";
 
-const MoviesList = ({ movies, onClick }) => {
+const MoviesList = () => {
+  const moviesContext = useContext(MoviesContext);
+
+  const movies = moviesContext.movies;
+  const handleCardClick = (e) => moviesContext.onOpenModal(e);
+
   return (
     <ul className={styles.moviesList}>
       {movies.map(({ poster_path, title, original_name, release_date, id }) => {
@@ -23,7 +28,7 @@ const MoviesList = ({ movies, onClick }) => {
             image={posterUrl}
             name={name}
             year={release}
-            onClick={onClick}
+            onClick={handleCardClick}
           />
         );
       })}

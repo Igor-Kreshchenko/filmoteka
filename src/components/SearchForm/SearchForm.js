@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import MoviesContext from "../../store/movies-context";
 import styles from "./SearchForm.module.css";
 
-const SearchForm = ({ onChangeQuery }) => {
+const SearchForm = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const moviesContext = useContext(MoviesContext);
+  const onChangeQuery = () => moviesContext.onChangeQuery(searchQuery);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -13,7 +16,7 @@ const SearchForm = ({ onChangeQuery }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    onChangeQuery(searchQuery);
+    onChangeQuery();
     reset();
   };
 
