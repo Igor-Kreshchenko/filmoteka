@@ -3,7 +3,7 @@ import {
   fetchTrendingMovies,
   fetchSearchMovies,
   fetchMovieById,
-} from "../services/api-service";
+} from "../services/movies-api-service";
 
 const MoviesContext = createContext({
   movies: [],

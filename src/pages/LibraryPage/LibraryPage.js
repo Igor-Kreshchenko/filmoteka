@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Button from "../../components/Button";
 import Section from "../../components/Section";
 import MoviesList from "../../components/MoviesList";
+import Modal from "../../components/Modal";
 import styles from "./LibraryPage.module.css";
+import MoviesContext from "../../store/movies-context";
 
 const LibraryPage = () => {
+  const moviesContext = useContext(MoviesContext);
+  const showModal = moviesContext.showModal;
+
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [moviesType, setMoviesType] = useState("watched");
@@ -67,8 +72,10 @@ const LibraryPage = () => {
       </div>
 
       <Section>
-        <MoviesList movies={movies} /*onClick={onOpenModal}*/ />
+        <MoviesList movies={movies} />
       </Section>
+
+      {showModal && <Modal />}
     </div>
   );
 };

@@ -5,24 +5,19 @@ import Modal from "../../components/Modal";
 import SearchForm from "../../components/SearchForm";
 import MoviesContext from "../../store/movies-context";
 
-const HomePage = ({
-  onChangeQuery,
-  movies,
-  onOpenModal,
-  onCloseModal,
-  movie,
-}) => {
+const HomePage = () => {
   const moviesContext = useContext(MoviesContext);
   const showModal = moviesContext.showModal;
+  const movies = moviesContext.movies;
 
   return (
     <>
-      <SearchForm onChangeQuery={onChangeQuery} />
+      <SearchForm />
       <Section>
-        <MoviesList movies={movies} onClick={onOpenModal} />
+        <MoviesList movies={movies} />
       </Section>
 
-      {showModal && <Modal onClose={onCloseModal} movie={movie} />}
+      {showModal && <Modal />}
     </>
   );
 };

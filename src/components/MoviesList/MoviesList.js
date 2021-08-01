@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import defaultPoster from "../../images/default-poster.png";
 import MoviesItem from "./MoviesItem";
-import MoviesContext from "../../store/movies-context";
 import styles from "./MoviesList.module.css";
+import MoviesContext from "../../store/movies-context";
 
-const MoviesList = () => {
+const MoviesList = ({ movies }) => {
   const moviesContext = useContext(MoviesContext);
-
-  const movies = moviesContext.movies;
   const handleCardClick = (e) => moviesContext.onOpenModal(e);
 
   return (
